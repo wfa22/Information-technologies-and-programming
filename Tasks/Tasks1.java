@@ -52,10 +52,6 @@ public class Tasks1 {
         return (n * m);
     }
 
-    public static int task3(int n, int m) {
-        return (n * m);
-    }
-
     public static float task3(int n, int m, int l) {
         return (int) (n * 20 + m * 50 + l * 100);
     }
@@ -105,11 +101,11 @@ public class Tasks1 {
     }
 
     public static int task9(double a, double b) {
-        return (int) (a*b*0.72);
+        return (int) (a * b * 0.72);
     }
 
     public static int task10(int a, int b) {
-        int need = ((a+1)/2);
-        return  (need>b) ? (need-b) : 0;
+        int need = ((a + 1) / 2);
+        return (need > b) ? (need - b) : 0;
     }
 }
