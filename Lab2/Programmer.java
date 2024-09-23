@@ -23,7 +23,7 @@ public class Programmer extends Employee {
         System.out.println("This programmer is " + programmingLanguage + " developer.");
     }
 
-
+    @Override
     public void displayInformation() {
         super.displayInformation();
         System.out.println("Programming language: " + programmingLanguage);

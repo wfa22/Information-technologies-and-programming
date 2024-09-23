@@ -24,6 +24,7 @@ public class Manager extends Administrator {
         System.out.println("Manager oversees a team of " + teamSize + " people.");
     }
 
+    @Override
     public void displayInformation() {
         super.displayInformation();
         System.out.println("Team Size: " + teamSize);
