@@ -40,8 +40,10 @@ public class Tasks2 {
 
     public static String duplicateChars(String str1, String str2) {
         StringBuilder result = new StringBuilder();
-        for (char c : str1.toCharArray()) {
-            if (!str2.contains(String.valueOf(c))) {
+        String str11 = str1.toLowerCase();
+        String str22 = str2.toLowerCase();
+        for (char c : str11.toCharArray()) {
+            if (!str22.contains(String.valueOf(c))) {
                 result.append(c);
             }
         }
