@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tasks2 {
     public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class Tasks2 {
         System.out.println(secondBiggest(new int[]{10, 20, 30, 40})); // 30
         System.out.println("==================");
         System.out.println(localReverse("baobab", 'b')); // "baboab"
-        System.out.println(localReverse("Hello, I’m under the water, please help me", 'e')); // " Hednu m’I ,oller thetaw er, plesae hem ple"
+        System.out.println(localReverse("Hello, I'm under the water, please help me", 'e')); // " Hednu m’I ,oller thetaw er, plesae hem ple"
         System.out.println("==================");
         System.out.println(equal(8, 1, 8)); // 2
         System.out.println(equal(5, 5, 5)); // 3
@@ -90,11 +92,29 @@ public class Tasks2 {
     }
 
     public static String localReverse(String str, char marker) {
-        int start = str.indexOf(marker);
-        int end = str.lastIndexOf(marker);
-        if (start == -1 || start == end) return str;
-        String middle = new StringBuilder(str.substring(start + 1, end)).reverse().toString();
-        return str.substring(0, start + 1) + middle + str.substring(end);
+        List<Integer> markerIndices = new ArrayList<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == marker) {
+                markerIndices.add(i);
+            }
+        }
+
+        if (markerIndices.size() % 2 != 0) {
+            markerIndices.remove(markerIndices.size() - 2);
+        }
+
+        StringBuilder result = new StringBuilder(str);
+
+        for (int i = 0; i < markerIndices.size(); i += 2) {
+            int start = markerIndices.get(i) + 1;
+            int end = markerIndices.get(i + 1);
+
+            String reversed = new StringBuilder(result.substring(start, end)).reverse().toString();
+            result.replace(start, end, reversed);
+        }
+
+        return result.toString();
     }
 
     public static int equal(int a, int b, int c) {
