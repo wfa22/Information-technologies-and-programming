@@ -20,7 +20,7 @@ class HashTable<K, V> {
         }
         for (Entry<K, V> entry : table[index]) {
             if (entry.getKey().equals(key)) {
-                entry.setValue(value);  // Обновляем значение
+                entry.setValue(value);
                 return;
             }
         }
@@ -54,6 +54,17 @@ class HashTable<K, V> {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public void printEntriesAtIndex(int index) {
+        if (table[index] != null) {
+            System.out.println("Entries at index " + index + ":");
+            for (Entry<K, V> entry : table[index]) {
+                System.out.println(entry.getKey() + " -> " + entry.getValue());
+            }
+        } else {
+            System.out.println("No entries at index " + index);
+        }
     }
 
     private static class Entry<K, V> {
