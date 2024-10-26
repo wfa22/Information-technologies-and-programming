@@ -1,0 +1,48 @@
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(AgeValidator.java:9)
+	at AgeValidator.main(AgeValidator.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(AgeValidator.java:9)
+	at AgeValidator.main(AgeValidator.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(AgeValidator.java:9)
+	at AgeValidator.main(AgeValidator.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(AgeValidator.java:9)
+	at AgeValidator.main(AgeValidator.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
+===================================
