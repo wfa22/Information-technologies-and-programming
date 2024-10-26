@@ -15,18 +15,24 @@ public class OnlineStore {
 
     public static void main(String[] args) {
         OnlineStore store = new OnlineStore();
+        System.out.println("Размер таблицы: " + store.products.length());
         store.addProduct("A100", new Product("Laptop", "Gaming laptop", 1200.99, 10));
         store.addProduct("B200", new Product("Phone", "Smartphone", 799.99, 25));
         store.addProduct("C300", new Product("Tablet", "Android tablet", 499.99, 15));
         store.addProduct("D400", new Product("Monitor", "4K Monitor", 299.99, 20));
         store.addProduct("E500", new Product("Headphones", "Wireless headphones", 99.99, 50));
 
-
-        System.out.println(store.products.size());
+        System.out.println("Размер таблицы: " + store.products.length());
+        System.out.println("Количество элементов в таблице: " + store.products.size());
         System.out.println(store.findProduct("A100"));
         store.removeProduct("B200");
-        System.out.println(store.products.size());
+        System.out.println("Количество элементов в таблице: " + store.products.size());
         store.products.printEntriesAtIndex(0);
+        store.products.printEntriesAtIndex(1);
+        store.products.printEntriesAtIndex(2);
+        store.products.printEntriesAtIndex(3);
+        store.products.printEntriesAtIndex(4);
+        store.products.printEntriesAtIndex(5);
     }
 }
 
