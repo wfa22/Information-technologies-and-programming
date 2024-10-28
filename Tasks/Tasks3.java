@@ -10,7 +10,7 @@ public class Tasks3 {
         System.out.println(isStrangePair("bush", "hubris")); // false
         System.out.println(isStrangePair("", "")); // true
         System.out.println("==================");
-        System.out.println(Arrays.deepToString(sale(new String[][]{{"Laptop", "124200"}, {"Phone", "51450"}, {"Headphones", "13800"}}, 25)));
+        System.out.println(Arrays.deepToString(sale(new Object[][]{{"Laptop", 124200}, {"Phone", 51450}, {"Headphones", 13800}}, 25)));
         System.out.println("==================");
         System.out.println(successShoot(0, 0, 5, 2, 2)); // true
         System.out.println(successShoot(-2, -3, 4, 5, -6)); // false
@@ -26,7 +26,7 @@ public class Tasks3 {
         System.out.println(bugger(999)); // 4
         System.out.println(bugger(4)); // 0
         System.out.println("==================");
-        System.out.println(mostExpensive(new String[][]{{"Скакалка", "550", "8"}, {"Шлем", "3750", "4"}, {"Мяч", "2900", "10"}})); // "Мяч - 29000"
+        System.out.println(mostExpensive(new Object[][]{{"Скакалка", 550, 8}, {"Шлем", 3750, 4}, {"Мяч", 2900, 10}})); // "Мяч - 29000"
         System.out.println("==================");
         System.out.println(longestUnique("abcba")); // abc
         System.out.println(longestUnique("bbb")); // b
@@ -45,11 +45,11 @@ public class Tasks3 {
                 str1.charAt(str1.length() - 1) == str2.charAt(0);
     }
 
-    public static String[][] sale(String[][] items, int discount) {
-        for (String[] item : items) {
-            int price = Integer.parseInt(item[1]);
+    public static Object[][] sale(Object[][] items, int discount) {
+        for (Object[] item : items) {
+            int price = (Integer) item[1];
             int discountedPrice = (int) Math.max(1, Math.round(price * (1 - discount / 100.0)));
-            item[1] = String.valueOf(discountedPrice);
+            item[1] = discountedPrice;
         }
         return items;
     }
@@ -82,16 +82,17 @@ public class Tasks3 {
         return count;
     }
 
-    public static String mostExpensive(String[][] inventory) {
+    public static String mostExpensive(Object[][] inventory) {
         String mostExpensiveItem = "";
         int maxTotalPrice = 0;
-        for (String[] item : inventory) {
-            int price = Integer.parseInt(item[1]);
-            int quantity = Integer.parseInt(item[2]);
+        for (Object[] item : inventory) {
+            String name = (String) item[0];
+            int price = (Integer) item[1];
+            int quantity = (Integer) item[2];
             int totalPrice = price * quantity;
             if (totalPrice > maxTotalPrice) {
                 maxTotalPrice = totalPrice;
-                mostExpensiveItem = item[0];
+                mostExpensiveItem = name;
             }
         }
         return "Наиб. общ. стоимость у предмета " + mostExpensiveItem + " - " + maxTotalPrice;
