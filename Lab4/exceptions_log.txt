@@ -46,3 +46,59 @@ CustomAgeException: Недопустимый возраст: 150
 	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
 	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
 ===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:31)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:38)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:31)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:38)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:31)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:38)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: -5
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: -5
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:31)
+===================================
+Исключение: CustomAgeException
+Сообщение: Недопустимый возраст: 150
+Стек вызовов:
+CustomAgeException: Недопустимый возраст: 150
+	at AgeValidator.validateAge(agevalidator.java:9)
+	at AgeValidator.main(agevalidator.java:38)
+===================================

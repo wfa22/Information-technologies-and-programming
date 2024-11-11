@@ -15,16 +15,19 @@ public class FileCopy {
             byte[] buffer = new byte[1024];
             int bytesRead;
 
+            //outputStream.close();
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, bytesRead);
             }
 
             System.out.println("Копирование завершено успешно!");
         } catch (FileNotFoundException e) {
-            System.out.println("Ошибка: файл не найден.");
-        } catch (IOException e) {
-            System.out.println("Ошибка при копировании файла: " + e.getMessage());
-        } finally {
+            System.out.println("Ошибка при открытии файла: файл не найден.");
+        }
+        catch (IOException e) {
+            System.out.println("Ошибка при закрытии файла: " + e.getMessage());
+        }
+         finally {
             try {
                 if (inputStream != null) {
                     inputStream.close();
