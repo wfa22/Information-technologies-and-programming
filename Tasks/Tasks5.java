@@ -204,57 +204,51 @@ public class Tasks5 {
         return Integer.parseInt(new String(num1Digits));
     }
 
-    public static String timeDifference(String cityA, String timestamp, String cityB) throws Exception {
-        // Таблица смещений по Гринвичу
-        Map<String, Double> offsets = new HashMap<>();
-        offsets.put("Los Angeles", -8.0);
-        offsets.put("New York", -5.0);
-        offsets.put("Caracas", -4.5);
-        offsets.put("Buenos Aires", -3.0);
-        offsets.put("London", 0.0);
-        offsets.put("Rome", 1.0);
-        offsets.put("Moscow", 3.0);
-        offsets.put("Tehran", 3.5);
-        offsets.put("New Delhi", 5.5);
-        offsets.put("Beijing", 8.0);
-        offsets.put("Canberra", 10.0);
+    private static final Map<String, Integer> timeOffsets = new HashMap<>() {
+        {
+            put("Los Angeles", -8 * 60);
+            put("New York", -5 * 60);
+            put("Caracas", -4 * 60 - 30);
+            put("Buenos Aires", -3 * 60);
+            put("London", 0);
+            put("Rome", 1 * 60);
+            put("Moscow", 3 * 60);
+            put("Tehran", 3 * 60 + 30);
+            put("New Delhi", 5 * 60 + 30);
+            put("Beijing", 8 * 60);
+            put("Canberra", 10 * 60);
+        }
+    };
 
-        // Получаем смещения
-        double offsetA = offsets.get(cityA);
-        double offsetB = offsets.get(cityB);
-
-        // Парсим входное время
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy HH:mm", Locale.ENGLISH);
-        LocalDateTime localDateTime = LocalDateTime.parse(timestamp, inputFormatter);
-
-        // Рассчитываем временные зоны в секундах
-        int offsetASeconds = (int) (offsetA * 3600);
-        int offsetBSeconds = (int) (offsetB * 3600);
-
-        // Преобразуем LocalDateTime в OffsetDateTime
-        ZoneOffset zoneOffsetA = ZoneOffset.ofTotalSeconds(offsetASeconds);
-        ZoneOffset zoneOffsetB = ZoneOffset.ofTotalSeconds(offsetBSeconds);
-        OffsetDateTime dateTimeA = OffsetDateTime.of(localDateTime, zoneOffsetA);
-
-        // Переводим в конечный часовой пояс
-        OffsetDateTime dateTimeB = dateTimeA.withOffsetSameInstant(zoneOffsetB);
-
-        // Форматируем результат
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-M-d HH:mm");
-        return dateTimeB.format(outputFormatter);
+    public static String timeDifference(String cityA, String timestamp, String cityB) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy HH:mm", Locale.US);
+        try {
+            Date date = sdf.parse(timestamp);
+            int offsetA = timeOffsets.get(cityA);
+            int offsetB = timeOffsets.get(cityB);
+            int timeDifference = offsetB - offsetA;
+            long newTimeInMillis = date.getTime() + timeDifference * 60 * 1000;
+            Date newDate = new Date(newTimeInMillis);
+            SimpleDateFormat resultFormat = new SimpleDateFormat("yyyy-M-d HH:mm");
+            return resultFormat.format(newDate);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     public static boolean isNew(int num) {
-        // Преобразуем число в строку и массив цифр
-        String numStr = String.valueOf(num);
-        char[] digits = numStr.toCharArray();
-
-        // Сортируем массив цифр
-        Arrays.sort(digits);
-
-        // Проверяем, совпадает ли число с минимально возможной перестановкой
-        String sortedNum = new String(digits);
-        return numStr.equals(sortedNum);
+        String strNum = Integer.toString(num);
+        for (int i = 1; i < num; i++) {
+            String strI = Integer.toString(i);
+            char[] digitsNum = strNum.toCharArray();
+            char[] digitsI = strI.toCharArray();
+            Arrays.sort(digitsNum);
+            Arrays.sort(digitsI);
+            if (Arrays.equals(digitsNum, digitsI)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
